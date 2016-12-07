@@ -1,0 +1,5 @@
+var app = require('../app');
+
+var server = app.listen(7001, function () {
+  console.log('Server is running on  ' + server.address().address + ':' + server.address().port);
+});

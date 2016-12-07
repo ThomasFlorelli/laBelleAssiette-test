@@ -4,8 +4,6 @@
       templateUrl: '/components/main/main.component.html',
       component: MainComponent
     });
-    
-  function MainComponent() {
-    
-  }
+  
+  function MainComponent() { }
 })();

@@ -1,34 +1,31 @@
 var express = require('express'),
 app = express(),
-util = require('util');
+cookieParser = require('cookie-parser'),
+bodyParser = require('body-parser'),
+methodOverride = require('method-override'),
+util = require('util'),
+mongoose = require('mongoose');
 
 app.path = path = require('path');
 app.jsHandler = jsHandler = '';
 
-// app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));
-// app.use(express.static(path.join(__dirname, '/public')));
-// var server = app.listen(7001, function () {
-// 	console.log('Server is running on  ' + server.address().address + ':' + server.address().port);
-// });
+mongoose.connect('mongodb://test:test@ds119568.mlab.com:19568/labelleassiettedb');
 
 // Common app config
-app.configure(function() {
-	app.use(express.urlencoded({
-		limit: '10mb'
-	}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+	limit: '10mb',
+	extended: true
+}));
 
-	app.use(express.json());
+app.use(methodOverride());
+app.use(cookieParser('lbajobs'));
 
-	app.use(express.methodOverride());
-	app.use(express.cookieParser('lbajobs'));
+app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));
+app.use(express.static(path.join(__dirname, '/public')));
 
-	app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));
-	app.use(express.static(path.join(__dirname, '/public')));
+var router = require('./routes/index');
+app.use('/api', router);
 	
-	/*
-		Starting app
-	*/
-	var server = app.listen(7001, function () {
-		console.log('Server is running on  ' + server.address().address + ':' + server.address().port);
-	});
-});
+
+module.exports = app;
