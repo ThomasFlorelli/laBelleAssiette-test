@@ -1,0 +1,51 @@
+<h3>Inventaire</h3>
+
+<table class="table table-hover">
+	<tr>
+		<th class="col-md-6">Ingrédient</th>
+		<th class="col-md-4">Quantité</th>
+		<th class="col-md-1"></th>
+		<th class="col-md-1"></th>
+	</tr>
+  	<tr ng-repeat="ingredient in $ctrl.ingredients">
+	    <td class="col-md-6">
+	    	<span ng-show="$ctrl.editRow != $index">
+	    		{{ ingredient.name }}
+	    	</span>
+	    	<input ng-show="$ctrl.editRow == $index" type="text" ng-model="$ctrl.updatedIngredient.name" />
+	    </td>
+	    <td class="col-md-4">
+	    	<span ng-show="$ctrl.editRow != $index">
+	    		{{ ingredient.quantity }}
+	    	</span>
+	    	<input ng-show="$ctrl.editRow == $index" type="number" ng-model="$ctrl.updatedIngredient.quantity" min="0" />
+	    	 unités
+	    </td>
+	    <td class="col-md-1">
+	    	<button class="btn btn-default" ng-show="$ctrl.editRow != $index" ng-click="$ctrl.edit($index)">
+	    		Modifier
+	    	</button>
+	    	<button class="btn btn-default" ng-show="$ctrl.editRow == $index" ng-click="$ctrl.editionDone($index)">
+	    		Back
+	    	</button>
+	    </td>
+	    <td class="col-md-1">
+	    	<button class="btn btn-default" ng-show="$ctrl.editRow != $index" ng-click="$ctrl.delete($index)">Supprimer</button>
+	    </td>
+  	</tr>
+  	<tr>
+  		<td class="col-md-6">
+  			<input type="text" ng-model="$ctrl.newIngredient.name" />
+  		</td>
+		<td class="col-md-4">
+			<input type="number" ng-model="$ctrl.newIngredient.quantity" min="0" />
+	    	 unités
+		</td>
+		<td class="col-md-1">
+			<button class="btn btn-default" ng-click="$ctrl.insert()">
+	    		Ajouter
+	    	</button>
+		</td>
+		<td class="col-md-1"></td>
+  	</tr>
+</table>

@@ -4,16 +4,19 @@
 	<meta charset="UTF-8">
 	<base href="/">
 	<title>La belle assiette</title>
-  	
-	<!-- <link rel="stylesheet" href="/styles/styles.css"> -->
+
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="/styles/styles.css">
 </head>
 <body ng-app="laBelleAssietteApp">
-
 	<main></main>
-	
-	<script src="/node_modules/angular/angular.js"></script>
 
+	<script src="/node_modules/angular/angular.js"></script>
+	<script src="/node_modules/ng-lodash/build/ng-lodash.js"></script>
+	
 	<script src="/lib/app.js"></script>
 	<script src="/components/main/main.component.js"></script>
+	<script src="/components/ingredient-list/ingredient-list.component.js"></script>
+	<script src="/services/ingredient.service.js"></script>
 </body>
 </html>

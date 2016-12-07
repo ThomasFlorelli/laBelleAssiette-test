@@ -1,3 +1,3 @@
 (function(){
-  angular.module('laBelleAssietteApp', []);
+  angular.module('laBelleAssietteApp', ['ngLodash']);
 })();

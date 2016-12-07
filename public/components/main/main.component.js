@@ -2,8 +2,10 @@
   angular.module('laBelleAssietteApp')
     .component('main', {
       templateUrl: '/components/main/main.component.html',
-      component: MainComponent
+      controller: MainController
     });
   
-  function MainComponent() { }
+  function MainController() {
+    
+  }
 })();
